@@ -10,12 +10,19 @@ class DataIngestion:
 
     def download_and_extract_data(self):
         try:
+            # Check if data already exists
+            if Path(self.config.train_data_path).exists() and Path(self.config.test_data_path).exists():
+                logging.info("Data already exists. Skipping download and extraction.")
+                return
+
             # Download dataset
             tar_filepath = Path(self.config.data_dir) / "aclImdb_v1.tar.gz"
+            logging.info(f"Downloading dataset from {self.config.data_url}...")
             download_file(self.config.data_url, tar_filepath)
             logging.info("Dataset downloaded successfully.")
 
             # Extract dataset
+            logging.info(f"Extracting dataset to {self.config.data_dir}...")
             extract_tar(tar_filepath, Path(self.config.data_dir))
             logging.info("Dataset extracted successfully.")
         except Exception as e:

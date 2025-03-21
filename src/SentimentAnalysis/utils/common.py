@@ -1,4 +1,5 @@
 import os
+import pickle
 import yaml
 import pandas as pd
 import tarfile
@@ -19,5 +20,11 @@ def download_file(url, filepath):
 def extract_tar(filepath, extract_dir):
     with tarfile.open(filepath, "r:gz") as tar:
         tar.extractall(path=extract_dir)
+
+def save_pickle(obj, filepath):
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, "wb") as f:
+        pickle.dump(obj, f)
+    print(f"Object saved to {filepath}")
 
 

@@ -10,3 +10,7 @@ class DataIngestionConfig:
     test_size: float
 
 
+@dataclass
+class DataPreprocessingConfig:
+    max_features: int
+    vectorizer_path: Path

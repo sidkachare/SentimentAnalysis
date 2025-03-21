@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from src.SentimentAnalysis.entity.config_entity import DataIngestionConfig
+from src.SentimentAnalysis.entity.config_entity import DataPreprocessingConfig
 
 class ConfigurationManager:
     def __init__(self, config_filepath):
@@ -22,4 +23,12 @@ class ConfigurationManager:
             test_size=config["test_size"]
         )
         return data_ingestion_config
+    
+
+    def get_data_preprocessing_config(self) -> DataPreprocessingConfig:
+        config = self.config["data_preprocessing"]
+        return DataPreprocessingConfig(
+            max_features=config["max_features"],
+            vectorizer_path=Path(config["vectorizer_path"])
+        )
     
