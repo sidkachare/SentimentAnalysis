@@ -1,0 +1,9 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  data_url: https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
+  data_dir: artifacts/data
+  train_data_path: artifacts/data/train.csv
+  test_data_path: artifacts/data/test.csv
+  test_size: 0.2
+

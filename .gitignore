@@ -1,2 +1,4 @@
 venvsa/
 artifacts/
+logs/
+__pycache__/
