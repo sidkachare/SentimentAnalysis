@@ -10,3 +10,14 @@ data_ingestion:
 data_preprocessing:
   max_features: 5000
   vectorizer_path: artifacts/vectorizer/vectorizer.pkl
+
+model_trainer:
+  model_path: artifacts/models/bert_model
+  batch_size: 8
+  max_seq_length: 96
+  learning_rate: 2e-5
+  epochs: 3
+
+mlflow:
+  tracking_uri: http://127.0.0.1:5000  # Local MLflow server
+  experiment_name: SentimentAnalysis

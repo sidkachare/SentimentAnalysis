@@ -2,3 +2,4 @@ venvsa/
 artifacts/
 logs/
 __pycache__/
+mlruns/

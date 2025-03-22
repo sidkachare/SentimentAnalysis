@@ -4,6 +4,7 @@ nltk
 scikit-learn
 notebook
 torch
+mlflow
 datasets
 sacrebleu
 transformers
