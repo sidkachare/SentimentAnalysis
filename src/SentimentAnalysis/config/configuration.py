@@ -3,6 +3,8 @@ from pathlib import Path
 from src.SentimentAnalysis.entity.config_entity import DataIngestionConfig
 from src.SentimentAnalysis.entity.config_entity import DataPreprocessingConfig
 from src.SentimentAnalysis.entity.config_entity import ModelTrainerConfig
+from src.SentimentAnalysis.entity.config_entity import ModelEvaluationConfig
+from src.SentimentAnalysis.entity.config_entity import ModelInferenceConfig
 from src.SentimentAnalysis.entity.config_entity import MLflowConfig
 
 class ConfigurationManager:
@@ -42,6 +44,22 @@ class ConfigurationManager:
             max_seq_length=int(config["max_seq_length"]),
             learning_rate=float(config["learning_rate"]),
             epochs=int(config["epochs"])
+        )
+    
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        config = self.config["model_evaluation"]
+        return ModelEvaluationConfig(
+            eval_data_dir=config.eval_data_dir,
+            eval_results_dir=config.eval_results_dir,
+            metrics_file=config.metrics_file,
+        )
+
+    def get_model_inference_config(self) -> ModelInferenceConfig:
+        config = self.config["model_inference"]
+        return ModelInferenceConfig(
+            inference_data_dir=config.inference_data_dir,
+            inference_results_dir=config.inference_results_dir,
+            inference_file=config.inference_file,
         )
 
     def get_mlflow_config(self) -> MLflowConfig:

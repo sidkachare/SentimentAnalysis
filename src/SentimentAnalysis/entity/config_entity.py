@@ -24,6 +24,18 @@ class ModelTrainerConfig:
     learning_rate: float
     epochs: int
 
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    eval_data_dir: Path
+    eval_results_dir: Path
+    metrics_file: str
+
+@dataclass(frozen=True)
+class ModelInferenceConfig:
+    inference_data_dir: Path
+    inference_results_dir: Path
+    inference_file: str
+
 @dataclass
 class MLflowConfig:
     tracking_uri: str

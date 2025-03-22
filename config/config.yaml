@@ -18,6 +18,16 @@ model_trainer:
   learning_rate: 2e-5
   epochs: 3
 
+model_evaluation:
+  eval_data_dir: "artifacts/data/preprocessed"
+  eval_results_dir: "artifacts/evaluation"
+  metrics_file: "evaluation_metrics.txt"
+
+model_inference:
+  inference_data_dir: "artifacts/data/inference"
+  inference_results_dir: "artifacts/inference"
+  inference_file: "inference_results.csv"
+
 mlflow:
   tracking_uri: http://127.0.0.1:5000  # Local MLflow server
   experiment_name: SentimentAnalysis
